@@ -39,6 +39,11 @@ public class CameraScript : MonoBehaviour
     {
         backDir = gameObject.transform.position - parentTransform.position;
 
+        if (Physics.Raycast(parentTransform.position, backDir, out hitInfo, backDir.magnitude))
+        {
+            gameObject.transform.position = hitInfo.point;
+        }
+
         if (Physics.Raycast(parentTransform.position, backDir, out hitInfo, backDir.magnitude + adjustment))
         {
             canZoomOut = false;
