@@ -23,15 +23,15 @@ public class CameraScript : MonoBehaviour
     {
         if (Input.mouseScrollDelta.y == 0) return;
 
-        backDir = gameObject.transform.position - parentTransform.position;
+        backDir = transform.position - parentTransform.position;
 
         if (Input.mouseScrollDelta.y > 0 && backDir.magnitude >= minZoomDist) 
         {
-            gameObject.transform.Translate(Vector3.forward * Time.deltaTime * zoomSpeed);
+            transform.Translate(Vector3.forward * Time.deltaTime * zoomSpeed);
         }
         else if (Input.mouseScrollDelta.y < 0 && canZoomOut && backDir.magnitude <= maxZoomDist)
         {
-            gameObject.transform.Translate(Vector3.back * Time.deltaTime * zoomSpeed);
+            transform.Translate(Vector3.back * Time.deltaTime * zoomSpeed);
         }
     } 
 
@@ -41,7 +41,7 @@ public class CameraScript : MonoBehaviour
 
         if (Physics.Raycast(parentTransform.position, backDir, out hitInfo, backDir.magnitude))
         {
-            gameObject.transform.position = hitInfo.point;
+            transform.position = hitInfo.point;
         }
 
         if (Physics.Raycast(parentTransform.position, backDir, out hitInfo, backDir.magnitude + adjustment))
