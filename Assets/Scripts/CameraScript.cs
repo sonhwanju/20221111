@@ -65,7 +65,6 @@ public class SphericalCoordinates
 {
     public float radius, azimuth, elevation;
 
-    // 반지름
     public float Radius
     {
         get { return radius; }
@@ -75,7 +74,6 @@ public class SphericalCoordinates
         }
     }
 
-    // 방위각
     public float Azimuth
     {
         get { return azimuth; }
@@ -85,7 +83,6 @@ public class SphericalCoordinates
         }
     }
 
-    // 앙각
     public float Elevation
     {
         get { return elevation; }
