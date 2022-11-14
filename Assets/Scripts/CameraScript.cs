@@ -112,7 +112,7 @@ public class SphericalCoordinates
 
     public SphericalCoordinates() { }
 
-    // 현재 카메라위치에 구면좌표를 구해준다.
+    // Returns the spherical coordinates of the current camera position.
     public SphericalCoordinates(Vector3 cartesianCoordinate)
     {
         _minAzimuth = Mathf.Deg2Rad * minAzimuth;
@@ -127,7 +127,7 @@ public class SphericalCoordinates
         Elevation = Mathf.Asin(cartesianCoordinate.y / Radius);
     }
 
-    // 현재 카메라위치를 직교좌표로 변환해 반환한다.
+    // Converts the current camera position to Cartesian coordinates and returns it.
     public Vector3 ToCartesian
     {
         get
@@ -137,7 +137,7 @@ public class SphericalCoordinates
         }
     }
 
-    // 카메라를 구면좌표계상에서 움직인다.
+    // Move the camera in a spherical coordinate system.
     public SphericalCoordinates Rotate(float newAzimuth, float newElevation)
     {
         Azimuth += newAzimuth;
