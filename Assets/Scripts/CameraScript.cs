@@ -44,8 +44,6 @@ public class CameraScript : MonoBehaviour
     {
         if (Input.mouseScrollDelta.y == 0) return;
 
-        backDir = cameraTransform.position - cubeTrm.position;
-
         cameraTransform.position = sphericalCoordinates.TranslateRadius(-Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * zoomSpeed).ToCartesian + cubeTrm.position;
     }
 
@@ -119,7 +117,6 @@ public class SphericalCoordinates
         _maxElevation = Mathf.Deg2Rad * maxElevation;
 
         Radius = cartesianCoordinate.magnitude;
-        Debug.Log(Radius);
         Azimuth = Mathf.Atan2(cartesianCoordinate.z, cartesianCoordinate.x);
         Elevation = Mathf.Asin(cartesianCoordinate.y / Radius);
     }
