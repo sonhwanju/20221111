@@ -55,6 +55,10 @@ public class CameraScript : MonoBehaviour
         {
             cameraTransform.position = hitInfo.point;
         }
+        else if(Input.mouseScrollDelta.y == 0f)
+        {
+            cameraTransform.position = Vector3.Lerp(cameraTransform.position, sphericalCoordinates.ToCartesian + cubeTrm.position, Time.deltaTime * 3f);
+        }
     }
 }
 
